@@ -27,20 +27,31 @@
             line-height: 1.6;
         }
 
-        /* Navbar */
+        /* ===== NAVBAR ===== */
         .navbar {
             background-color: var(--primary);
-            padding: 15px 50px;
+            padding: 14px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
         }
-        .navbar .logo {
-            font-size: 20px;
+        .navbar-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .navbar-brand .school-name {
+            font-size: 18px;
             font-weight: 700;
             letter-spacing: 0.5px;
+        }
+        .navbar-brand .student-name {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--secondary);
+            letter-spacing: 0.3px;
         }
         .navbar ul {
             display: flex;
@@ -54,6 +65,7 @@
             font-size: 14px;
             transition: 0.2s;
         }
+        .navbar ul li a:hover { opacity: 0.8; }
         .btn-kontak {
             background-color: var(--secondary);
             color: var(--primary) !important;
@@ -62,7 +74,7 @@
             font-weight: 600;
         }
 
-        /* Banner Style */
+        /* ===== BANNER / HERO ===== */
         .hero-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -103,14 +115,14 @@
         .banner-2 .banner-overlay h2 { color: var(--primary); }
         .banner-overlay p { font-size: 13px; max-width: 60%; }
 
-        /* Main Container */
+        /* ===== MAIN CONTAINER ===== */
         .main-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 30px 50px 30px;
         }
 
-        /* Semester Toggle */
+        /* ===== SEMESTER TOGGLE ===== */
         .semester-toggle {
             display: flex;
             justify-content: center;
@@ -127,6 +139,7 @@
             color: var(--text-dark);
             cursor: pointer;
             transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
         }
         .sem-btn.active {
             background: var(--primary);
@@ -134,8 +147,12 @@
             border-color: var(--primary);
             box-shadow: 0 4px 10px rgba(0,51,204,0.3);
         }
+        .sem-btn:hover:not(.active) {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
 
-        /* Grid Menu */
+        /* ===== GRID MENU ===== */
         .welcome-title { margin-bottom: 20px; font-size: 22px; color: var(--text-dark); }
         .menu-grid {
             display: grid;
@@ -156,16 +173,21 @@
             align-items: center;
             gap: 8px;
         }
-        .menu-item:hover, .menu-item.active {
+        .menu-item:hover {
             border-color: var(--primary);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,51,204,0.1);
         }
-        .menu-item.active { background-color: #f0f4ff; }
+        .menu-item.active {
+            border-color: var(--primary);
+            background-color: #f0f4ff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,51,204,0.15);
+        }
         .menu-icon { font-size: 28px; }
         .menu-item span { font-size: 12px; font-weight: 600; color: #555; }
 
-        /* Content Display Box */
+        /* ===== CONTENT DISPLAY ===== */
         .content-display {
             background: white;
             border-radius: 12px;
@@ -184,23 +206,43 @@
             margin-bottom: 25px;
             font-size: 22px;
         }
+
+        /* ===== INFO GRID (Profil) ===== */
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 15px;
             background: #f8fafc;
             padding: 20px;
             border-radius: 8px;
             border: 1px solid var(--border);
             margin-bottom: 20px;
         }
+        .info-grid .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        .info-grid .info-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .info-grid .info-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* ===== EVALUATION CARDS ===== */
         .evaluation {
             background: #f0f4ff;
             border-left: 4px solid var(--primary);
             padding: 15px 20px;
-            margin-top: 20px;
+            margin-top: 16px;
             border-radius: 0 8px 8px 0;
-            font-style: italic;
         }
         .evaluation strong {
             color: var(--primary);
@@ -208,25 +250,99 @@
             margin-bottom: 8px;
             font-style: normal;
         }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid var(--border); padding: 12px; text-align: left; }
-        th { background-color: #f0f4ff; color: var(--primary); }
 
-        /* Responsive */
+        /* ===== TABLE ===== */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid var(--border); padding: 12px; text-align: left; font-size: 14px; }
+        th { background-color: #f0f4ff; color: var(--primary); font-weight: 600; }
+        tr:hover td { background-color: #fafbff; }
+
+        /* ===== PENGESAHAN ===== */
+        .pengesahan-wrapper {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .pengesahan-wrapper .pengesahan-tanggal {
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .pengesahan-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .pengesahan-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 25px 20px;
+            text-align: center;
+        }
+        .pengesahan-card .role {
+            font-size: 13px;
+            font-weight: 600;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        .pengesahan-card .instansi {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 60px;
+        }
+        .pengesahan-card .ttd-line {
+            border-top: 2px solid var(--text-dark);
+            margin: 0 auto 8px auto;
+            width: 70%;
+        }
+        .pengesahan-card .nama {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: underline;
+        }
+        .pengesahan-card .nip {
+            font-size: 12px;
+            color: #777;
+            margin-top: 3px;
+        }
+
+        /* ===== BADGE SEMESTER ===== */
+        .sem-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 1000px) { .menu-grid { grid-template-columns: repeat(4, 1fr); } }
         @media (max-width: 768px) {
             .hero-section { grid-template-columns: 1fr; padding: 20px; }
-            .navbar { flex-direction: column; gap: 15px; }
+            .navbar { flex-direction: column; gap: 15px; padding: 15px 20px; }
             .info-grid { grid-template-columns: 1fr; }
+            .pengesahan-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 480px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar">
-        <div class="logo">PAUD Hidayatul Ilmi</div>
+        <div class="navbar-brand">
+            <span class="school-name">PAUD Hidayatul Ilmi</span>
+            <span class="student-name">&#128100; Yusuf Emran Setiawan</span>
+        </div>
         <ul>
             <li><a href="#">Beranda</a></li>
             <li><a href="#">Artikel</a></li>
@@ -236,7 +352,7 @@
         </ul>
     </nav>
 
-    <!-- Hero / Banners -->
+    <!-- ===== HERO / BANNER ===== -->
     <header class="hero-section">
         <div class="banner-card banner-1">
             <div class="banner-overlay">
@@ -253,174 +369,265 @@
     </header>
 
     <main class="main-container">
-        
-        <!-- Toggle Ganjil / Genap -->
+
+        <!-- ===== TOGGLE SEMESTER ===== -->
         <div class="semester-toggle">
-            <button class="sem-btn active" onclick="setSemester('ganjil')">Semester Ganjil</button>
-            <button class="sem-btn" onclick="setSemester('genap')">Semester Genap</button>
+            <button class="sem-btn active" onclick="setSemester('ganjil', this)">Semester Ganjil</button>
+            <button class="sem-btn" onclick="setSemester('genap', this)">Semester Genap</button>
         </div>
 
         <h2 class="welcome-title">Laporan Perkembangan: Yusuf Emran Setiawan</h2>
 
-        <!-- Grid Menu (8 Tombol) -->
+        <!-- ===== GRID MENU (8 TOMBOL) ===== -->
         <section class="menu-grid">
             <div class="menu-item active" onclick="setMenu('profil')" id="btn-profil">
-                <div class="menu-icon">👤</div><span>Data Profil</span>
+                <div class="menu-icon">&#128100;</div><span>Data Profil</span>
             </div>
             <div class="menu-item" onclick="setMenu('agama')" id="btn-agama">
-                <div class="menu-icon">🤲</div><span>Agama & Budi</span>
+                <div class="menu-icon">&#129306;</div><span>Agama &amp; Budi</span>
             </div>
             <div class="menu-item" onclick="setMenu('jatidiri')" id="btn-jatidiri">
-                <div class="menu-icon">🧠</div><span>Jati Diri</span>
+                <div class="menu-icon">&#129504;</div><span>Jati Diri</span>
             </div>
             <div class="menu-item" onclick="setMenu('steam')" id="btn-steam">
-                <div class="menu-icon">🔬</div><span>Literasi STEAM</span>
+                <div class="menu-icon">&#128300;</div><span>Literasi STEAM</span>
             </div>
             <div class="menu-item" onclick="setMenu('karakter')" id="btn-karakter">
-                <div class="menu-icon">🌟</div><span>Karakter</span>
+                <div class="menu-icon">&#127775;</div><span>Karakter</span>
             </div>
             <div class="menu-item" onclick="setMenu('fisik')" id="btn-fisik">
-                <div class="menu-icon">🏃‍♂️</div><span>Fisik & Olahraga</span>
+                <div class="menu-icon">&#127939;</div><span>Fisik &amp; Olahraga</span>
             </div>
             <div class="menu-item" onclick="setMenu('evaluasi')" id="btn-evaluasi">
-                <div class="menu-icon">📝</div><span>Evaluasi Guru</span>
+                <div class="menu-icon">&#128221;</div><span>Evaluasi Guru</span>
             </div>
             <div class="menu-item" onclick="setMenu('pengesahan')" id="btn-pengesahan">
-                <div class="menu-icon">📋</div><span>Pengesahan</span>
+                <div class="menu-icon">&#128203;</div><span>Pengesahan</span>
             </div>
         </section>
 
-        <!-- AREA KONTEN YANG BERUBAH-UBAH -->
+        <!-- ===== AREA KONTEN ===== -->
         <section class="content-display">
 
-            <!-- ================= KONTEN GANJIL ================= -->
+            <!-- ==================== SEMESTER GANJIL ==================== -->
+
+            <!-- Ganjil: Data Profil -->
             <div id="ganjil-profil" class="content-box active">
-                <h2 class="content-title">Data Profil (Semester Ganjil)</h2>
+                <h2 class="content-title">Data Profil <span class="sem-badge">Semester Ganjil</span></h2>
                 <div class="info-grid">
-                    <div><strong>Nama:</strong> Yusuf Emran Setiawan</div>
-                    <div><strong>Fase:</strong> Fondasi</div>
-                    <div><strong>Umur:</strong> 5 tahun 8 bulan</div>
-                    <div><strong>Kelompok:</strong> A</div>
+                    <div class="info-item">
+                        <span class="info-label">Nama Lengkap</span>
+                        <span class="info-value">Yusuf Emran Setiawan</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Fase / Kelompok</span>
+                        <span class="info-value">Fondasi / A</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Usia</span>
+                        <span class="info-value">5 tahun 8 bulan</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Tahun Ajaran</span>
+                        <span class="info-value">2025 / 2026</span>
+                    </div>
                 </div>
             </div>
 
+            <!-- Ganjil: Agama & Budi Pekerti -->
             <div id="ganjil-agama" class="content-box">
-                <h2 class="content-title">Capaian Nilai Agama dan Budi Pekerti</h2>
+                <h2 class="content-title">Nilai Agama dan Budi Pekerti <span class="sem-badge">Semester Ganjil</span></h2>
                 <p>Pada elemen nilai agama dan budi pekerti, kami senang karena Yusuf dapat mengenal dan menyebutkan Tuhannya dan mengenal dan menyebutkan tentang agamanya. Selanjutnya, Yusuf dapat melakukan praktik berdoa/beribadah seperti melafalkan doa-doa yang lebih kompleks dan melafalkan doa-doa sederhana. Di samping itu, Yusuf juga dapat mengenal perayaan hari besar agama. Kemudian, Yusuf dapat mengenal keberagaman agama di Indonesia.</p>
                 <br>
-                <p>Pada aspek kebersihan, Yusuf dapat melakukan praktik kebersihan seperti menggunakan toilet dengan benar dan cuci tangan dengan benar. Tidak hanya itu, Yusuf juga dapat melakukan praktik menjaga kesehatan seperti makan dengan benar... Yusuf juga dapat melakukan praktik menjaga kelestarian lingkungan seperti bersikap baik dengan hewan di sekitarnya dan menjaga kelestarian tanaman.</p>
+                <p>Pada aspek kebersihan, Yusuf dapat melakukan praktik kebersihan seperti menggunakan toilet dengan benar dan cuci tangan dengan benar. Tidak hanya itu, Yusuf juga dapat melakukan praktik menjaga kesehatan seperti makan dengan benar. Yusuf juga dapat melakukan praktik menjaga kelestarian lingkungan seperti bersikap baik dengan hewan di sekitarnya dan menjaga kelestarian tanaman.</p>
             </div>
 
+            <!-- Ganjil: Jati Diri -->
             <div id="ganjil-jatidiri" class="content-box">
-                <h2 class="content-title">Capaian Jati Diri</h2>
-                <p>Pada elemen jati diri, kami senang karena Yusuf dapat mengelola emosi seperti mengungkapkan emosinya dengan cara yang sesuai dan mengidentifikasi emosi dasar seperti senang, sedih, marah, takut, dan terkejut. Selanjutnya, Yusuf dapat mengenal tubuhnya seperti panca indera dan anggota tubuh utama...</p>
+                <h2 class="content-title">Capaian Jati Diri <span class="sem-badge">Semester Ganjil</span></h2>
+                <p>Pada elemen jati diri, kami senang karena Yusuf dapat mengelola emosi seperti mengungkapkan emosinya dengan cara yang sesuai dan mengidentifikasi emosi dasar seperti senang, sedih, marah, takut, dan terkejut. Selanjutnya, Yusuf dapat mengenal tubuhnya seperti panca indera dan anggota tubuh utama. Yusuf juga menunjukkan sikap percaya diri dalam berbagai kegiatan di sekolah.</p>
             </div>
 
+            <!-- Ganjil: Literasi STEAM -->
             <div id="ganjil-steam" class="content-box">
-                <h2 class="content-title">Capaian Literasi dan STEAM</h2>
-                <p>Pada elemen literasi dan STEAM, pada aspek komunikasi, Yusuf dapat menyimak guru dan memperhatikan perintah sederhana... Pada aspek pra menulis, Yusuf dapat menulis huruf dengan tangannya dan membentuk huruf dengan berbagai media. Pada aspek pra matematika, Yusuf mampu mengenal angka sebagai bilangan yang bermakna.</p>
+                <h2 class="content-title">Capaian Literasi dan STEAM <span class="sem-badge">Semester Ganjil</span></h2>
+                <p>Pada elemen literasi dan STEAM, pada aspek komunikasi, Yusuf dapat menyimak guru dan memperhatikan perintah sederhana. Pada aspek pra menulis, Yusuf dapat menulis huruf dengan tangannya dan membentuk huruf dengan berbagai media. Pada aspek pra matematika, Yusuf mampu mengenal angka sebagai bilangan yang bermakna dan mengurutkan angka dengan benar.</p>
             </div>
 
+            <!-- Ganjil: Karakter -->
             <div id="ganjil-karakter" class="content-box">
-                <h2 class="content-title">Dimensi Profil & Karakter Pembelajar</h2>
+                <h2 class="content-title">Dimensi Profil &amp; Karakter Pembelajar <span class="sem-badge">Semester Ganjil</span></h2>
                 <table>
-                    <tr><th style="width: 25%">Aspek</th><th>Deskripsi Perkembangan</th></tr>
-                    <tr><td><strong>Kemandirian</strong></td><td>Yusuf tidak hanya sepenuhnya mandiri dalam memulai dan menyelesaikan semua tugas harian, tetapi juga secara proaktif mengelola waktu belajar dan aktivitasnya sendiri dengan sangat efektif.</td></tr>
-                    <tr><td><strong>Gemar Belajar</strong></td><td>Secara keseluruhan, Yusuf telah mampu memulai dan menyelesaikan sebagian besar tugas-tugas yang diberikan dengan sedikit bimbingan dari guru.</td></tr>
+                    <thead>
+                        <tr><th style="width:25%">Aspek</th><th>Deskripsi Perkembangan</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Kemandirian</strong></td>
+                            <td>Yusuf tidak hanya sepenuhnya mandiri dalam memulai dan menyelesaikan semua tugas harian, tetapi juga secara proaktif mengelola waktu belajar dan aktivitasnya sendiri dengan sangat efektif.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gemar Belajar</strong></td>
+                            <td>Secara keseluruhan, Yusuf telah mampu memulai dan menyelesaikan sebagian besar tugas-tugas yang diberikan dengan sedikit bimbingan dari guru.</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
 
+            <!-- Ganjil: Fisik & Olahraga -->
             <div id="ganjil-fisik" class="content-box">
-                <h2 class="content-title">Perkembangan Fisik & Olahraga</h2>
-                <p><strong>Berolahraga:</strong> Yusuf menunjukkan keterkaitan awal dalam aktivitas fisik, namun masih sering melewatkan sesi olahraga dan terlihat kurang aktif saat mengikuti berbagai kegiatan yang membutuhkan gerak. Motivasi internal untuk bergerak perlu distimulasi lebih lanjut.</p>
+                <h2 class="content-title">Perkembangan Fisik &amp; Olahraga <span class="sem-badge">Semester Ganjil</span></h2>
+                <p><strong>Berolahraga:</strong> Yusuf menunjukkan ketertarikan awal dalam aktivitas fisik, namun masih sering melewatkan sesi olahraga dan terlihat kurang aktif saat mengikuti berbagai kegiatan yang membutuhkan gerak. Motivasi internal untuk bergerak perlu distimulasi lebih lanjut.</p>
             </div>
 
+            <!-- Ganjil: Evaluasi Guru -->
             <div id="ganjil-evaluasi" class="content-box">
-                <h2 class="content-title">Catatan & Evaluasi Guru</h2>
+                <h2 class="content-title">Catatan &amp; Evaluasi Guru <span class="sem-badge">Semester Ganjil</span></h2>
                 <div class="evaluation">
-                    <strong>Evaluasi Agama:</strong> Yusuf menunjukkan ketertarikan awal dalam mengenal konsep-konsep dasar agama. Meskipun keterlibatan Yusuf masih terbatas, upaya awal yang dilakukan sudah menunjukkan potensi yang baik.
+                    <strong>&#128218; Evaluasi Agama &amp; Budi Pekerti</strong>
+                    Yusuf menunjukkan ketertarikan awal dalam mengenal konsep-konsep dasar agama. Meskipun keterlibatan Yusuf masih terbatas, upaya awal yang dilakukan sudah menunjukkan potensi yang baik.
                 </div>
                 <div class="evaluation">
-                    <strong>Evaluasi Jati Diri:</strong> Yusuf menunjukkan langkah awal yang penting dalam mengenali dirinya dan emosinya. Meski masih memerlukan pendampingan intensif, proses tumbuhnya patut diapresiasi.
+                    <strong>&#129504; Evaluasi Jati Diri</strong>
+                    Yusuf menunjukkan langkah awal yang penting dalam mengenali dirinya dan emosinya. Meski masih memerlukan pendampingan intensif, proses tumbuhnya patut diapresiasi.
                 </div>
                 <div class="evaluation">
-                    <strong>Evaluasi STEAM:</strong> Yusuf telah menunjukkan perkembangan yang cukup baik dalam mengenali huruf, kata, dan fenomena sains sederhana. Frekuensi dan durasi keterlibatan belajar berlangsung stabil.
+                    <strong>&#128300; Evaluasi Literasi &amp; STEAM</strong>
+                    Yusuf telah menunjukkan perkembangan yang cukup baik dalam mengenali huruf, kata, dan fenomena sains sederhana. Frekuensi dan durasi keterlibatan belajar berlangsung stabil.
                 </div>
             </div>
 
+            <!-- Ganjil: Pengesahan -->
             <div id="ganjil-pengesahan" class="content-box">
-                <h2 class="content-title">Pengesahan Dokumen</h2>
-                <p>Dokumen semester ganjil telah divalidasi oleh pihak sekolah. Silakan pindah ke <strong>Semester Genap</strong> untuk melihat data pengesahan akhir tahun ajaran.</p>
-            </div>
-
-
-            <!-- ================= KONTEN GENAP ================= -->
-            <div id="genap-profil" class="content-box">
-                <h2 class="content-title">Data Profil (Semester Genap)</h2>
-                <div class="info-grid">
-                    <div><strong>Nama:</strong> Yusuf Emran Setiawan</div>
-                    <div><strong>Fisik:</strong> TB: 113 cm | BB: 18 kg | LK: 53 cm</div>
-                    <div><strong>Fase / Kelompok:</strong> Fondasi / A</div>
-                    <div><strong>Kehadiran:</strong> Sakit (1), Ijin (1), Alpa (0)</div>
+                <h2 class="content-title">Pengesahan Dokumen <span class="sem-badge">Semester Ganjil</span></h2>
+                <p style="color:#555; margin-bottom:20px; font-size:14px;">Dokumen Laporan Perkembangan Anak Semester Ganjil Tahun Ajaran 2025/2026 telah divalidasi oleh pihak sekolah.</p>
+                <div class="pengesahan-grid">
+                    <div class="pengesahan-card">
+                        <div class="role">Mengetahui</div>
+                        <div class="instansi">Kepala KB Hidayatul Ilmi</div>
+                        <div class="ttd-line"></div>
+                        <div class="nama">Anisa Rahmah, S.Pd</div>
+                        <div class="nip">NIP. -</div>
+                    </div>
+                    <div class="pengesahan-card">
+                        <div class="role">Ditetapkan di</div>
+                        <div class="instansi">Pringsewu, Desember 2025</div>
+                        <div class="ttd-line"></div>
+                        <div class="nama">Guru Kelas A</div>
+                        <div class="nip">Anisa Rahmah, S.Pd</div>
+                    </div>
                 </div>
             </div>
 
+
+            <!-- ==================== SEMESTER GENAP ==================== -->
+
+            <!-- Genap: Data Profil -->
+            <div id="genap-profil" class="content-box">
+                <h2 class="content-title">Data Profil <span class="sem-badge">Semester Genap</span></h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Nama Lengkap</span>
+                        <span class="info-value">Yusuf Emran Setiawan</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Fase / Kelompok</span>
+                        <span class="info-value">Fondasi / A</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Data Fisik</span>
+                        <span class="info-value">TB: 113 cm &nbsp;|&nbsp; BB: 18 kg &nbsp;|&nbsp; LK: 53 cm</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Kehadiran</span>
+                        <span class="info-value">Sakit: 1 &nbsp;|&nbsp; Ijin: 1 &nbsp;|&nbsp; Alpa: 0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Genap: Agama & Budi Pekerti -->
             <div id="genap-agama" class="content-box">
-                <h2 class="content-title">Capaian Nilai Agama dan Budi Pekerti</h2>
-                <p>Pada elemen nilai agama dan budi pekerti, kami senang karena Yusuf dapat mengetahui tempat ibadah agamanya dan mengenal dan menyebutkan tuhannya. Selanjutnya, Yusuf dapat melakukan praktik berdoa/beribadah seperti menunjukkan sikap khusyuk saat berdoa dan beribadah dan melafalkan doa-doa yang lebih kompleks...</p>
+                <h2 class="content-title">Nilai Agama dan Budi Pekerti <span class="sem-badge">Semester Genap</span></h2>
+                <p>Pada elemen nilai agama dan budi pekerti, kami senang karena Yusuf dapat mengetahui tempat ibadah agamanya dan mengenal dan menyebutkan Tuhannya. Selanjutnya, Yusuf dapat melakukan praktik berdoa/beribadah seperti menunjukkan sikap khusyuk saat berdoa dan beribadah dan melafalkan doa-doa yang lebih kompleks. Yusuf juga menunjukkan peningkatan yang sangat signifikan dalam pemahaman nilai-nilai agama dibandingkan semester sebelumnya.</p>
             </div>
 
+            <!-- Genap: Jati Diri -->
             <div id="genap-jatidiri" class="content-box">
-                <h2 class="content-title">Capaian Jati Diri</h2>
-                <p>Pada elemen jati diri, kami senang karena Yusuf dapat mengelola emosi seperti mengungkapkan emosinya dengan cara yang sesuai dan mengidentifikasi emosi mereka sendiri dan emosi orang lain. Selanjutnya, Yusuf dapat mengenal tubuhnya seperti nama-nama jari dan panca indera...</p>
+                <h2 class="content-title">Capaian Jati Diri <span class="sem-badge">Semester Genap</span></h2>
+                <p>Pada elemen jati diri, kami senang karena Yusuf dapat mengelola emosi seperti mengungkapkan emosinya dengan cara yang sesuai dan mengidentifikasi emosi mereka sendiri dan emosi orang lain. Selanjutnya, Yusuf dapat mengenal tubuhnya seperti nama-nama jari dan panca indera. Yusuf juga semakin percaya diri dalam berinteraksi dengan teman-teman dan guru di kelas.</p>
             </div>
 
+            <!-- Genap: Literasi STEAM -->
             <div id="genap-steam" class="content-box">
-                <h2 class="content-title">Capaian Literasi dan STEAM</h2>
-                <p>Pada elemen literasi dan STEAM, pada aspek komunikasi, Yusuf dapat menyimak tuturan panjang atau cerita guru... Pada aspek pra menulis, Yusuf dapat menuliskan gabungan huruf dengan baik dan menulis huruf dengan tangannya.</p>
+                <h2 class="content-title">Capaian Literasi dan STEAM <span class="sem-badge">Semester Genap</span></h2>
+                <p>Pada elemen literasi dan STEAM, pada aspek komunikasi, Yusuf dapat menyimak tuturan panjang atau cerita guru dengan baik dan merespons pertanyaan dengan tepat. Pada aspek pra menulis, Yusuf dapat menuliskan gabungan huruf dengan baik dan menulis huruf dengan tangannya secara mandiri. Kemampuan numerasi Yusuf juga meningkat dengan signifikan di semester ini.</p>
             </div>
 
+            <!-- Genap: Karakter -->
             <div id="genap-karakter" class="content-box">
-                <h2 class="content-title">Dimensi Profil & Karakter Pembelajar</h2>
+                <h2 class="content-title">Dimensi Profil &amp; Karakter Pembelajar <span class="sem-badge">Semester Genap</span></h2>
                 <table>
-                    <tr><th style="width: 25%">Aspek</th><th>Deskripsi Perkembangan</th></tr>
-                    <tr><td><strong>Kreativitas</strong></td><td>Yusuf secara aktif dan mandiri menghasilkan berbagai ide baru saat dihadapkan pada masalah atau tugas, sering kali menggabungkan berbagai konsep untuk menciptakan solusi yang inovatif.</td></tr>
-                    <tr><td><strong>Bermasyarakat</strong></td><td>Capaian Yusuf secara menyeluruh menunjukkan bahwa Yusuf berpartisipasi aktif dan konstruktif dalam kegiatan kelompok, mampu bekerja sama dengan baik dan mengambil peran sesuai kebutuhan.</td></tr>
+                    <thead>
+                        <tr><th style="width:25%">Aspek</th><th>Deskripsi Perkembangan</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Kreativitas</strong></td>
+                            <td>Yusuf secara aktif dan mandiri menghasilkan berbagai ide baru saat dihadapkan pada masalah atau tugas, sering kali menggabungkan berbagai konsep untuk menciptakan solusi yang inovatif.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bermasyarakat</strong></td>
+                            <td>Capaian Yusuf secara menyeluruh menunjukkan bahwa Yusuf berpartisipasi aktif dan konstruktif dalam kegiatan kelompok, mampu bekerja sama dengan baik dan mengambil peran sesuai kebutuhan.</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
 
+            <!-- Genap: Fisik & Olahraga -->
             <div id="genap-fisik" class="content-box">
-                <h2 class="content-title">Perkembangan Fisik & Olahraga</h2>
-                <p><strong>Berolahraga:</strong> Yusuf secara mandiri dan konsisten berpartisipasi aktif dalam sesi olahraga dan kegiatan fisik, menunjukkan energi yang baik dan ketahanan fisik yang meningkat. (Terdapat peningkatan yang sangat signifikan dari semester ganjil).</p>
+                <h2 class="content-title">Perkembangan Fisik &amp; Olahraga <span class="sem-badge">Semester Genap</span></h2>
+                <p><strong>Berolahraga:</strong> Yusuf secara mandiri dan konsisten berpartisipasi aktif dalam sesi olahraga dan kegiatan fisik, menunjukkan energi yang baik dan ketahanan fisik yang meningkat.</p>
+                <div class="evaluation" style="margin-top:20px;">
+                    <strong>&#128200; Catatan Peningkatan</strong>
+                    Terdapat peningkatan yang sangat signifikan dari Semester Ganjil. Yusuf yang sebelumnya kurang aktif kini menjadi salah satu anak yang paling bersemangat dalam kegiatan fisik dan olahraga.
+                </div>
             </div>
 
+            <!-- Genap: Evaluasi Guru -->
             <div id="genap-evaluasi" class="content-box">
-                <h2 class="content-title">Catatan & Evaluasi Guru</h2>
+                <h2 class="content-title">Catatan &amp; Evaluasi Guru <span class="sem-badge">Semester Genap</span></h2>
                 <div class="evaluation">
-                    <strong>Evaluasi Agama:</strong> Yusuf mulai menunjukkan pemahaman awal terhadap konsep agama dan nilai-nilai kebaikan. Dalam beberapa kesempatan, Yusuf tampak berpartisipasi aktif.
+                    <strong>&#128218; Evaluasi Agama &amp; Budi Pekerti</strong>
+                    Yusuf mulai menunjukkan pemahaman awal terhadap konsep agama dan nilai-nilai kebaikan. Dalam beberapa kesempatan, Yusuf tampak berpartisipasi aktif dan antusias dalam kegiatan keagamaan.
                 </div>
                 <div class="evaluation">
-                    <strong>Evaluasi Jati Diri:</strong> Yusuf sudah mulai mandiri, mampu mengenali dan mengungkapkan perasaannya, serta bersikap baik kepada teman. Ini adalah perkembangan yang sangat baik.
+                    <strong>&#129504; Evaluasi Jati Diri</strong>
+                    Yusuf sudah mulai mandiri, mampu mengenali dan mengungkapkan perasaannya, serta bersikap baik kepada teman. Ini adalah perkembangan yang sangat baik dan membanggakan.
                 </div>
                 <div class="evaluation">
-                    <strong>Evaluasi STEAM:</strong> Yusuf sering bertanya tentang hal baru dan menunjukkan rasa ingin tahu yang tinggi. Mampu bekerja sama dengan teman untuk menyelesaikan tugas dengan cara berbeda.
+                    <strong>&#128300; Evaluasi Literasi &amp; STEAM</strong>
+                    Yusuf sering bertanya tentang hal baru dan menunjukkan rasa ingin tahu yang tinggi. Mampu bekerja sama dengan teman untuk menyelesaikan tugas dengan cara yang kreatif dan berbeda.
                 </div>
             </div>
 
+            <!-- Genap: Pengesahan -->
             <div id="genap-pengesahan" class="content-box">
-                <h2 class="content-title">Pengesahan</h2>
-                <div class="info-grid" style="text-align: center; margin-top: 30px;">
-                    <div>
-                        <p>Mengetahui,</p>
-                        <p><strong>Kepala KB Hidayatul Ilmi</strong></p>
-                        <br><br><br>
-                        <p><u>Anisa Rahmah, S.Pd</u></p>
+                <h2 class="content-title">Pengesahan Dokumen <span class="sem-badge">Semester Genap</span></h2>
+                <p style="color:#555; margin-bottom:20px; font-size:14px;">Dokumen Laporan Perkembangan Anak Semester Genap Tahun Ajaran 2025/2026 telah divalidasi dan disahkan oleh pihak sekolah.</p>
+                <div class="pengesahan-grid">
+                    <div class="pengesahan-card">
+                        <div class="role">Mengetahui</div>
+                        <div class="instansi">Kepala KB Hidayatul Ilmi</div>
+                        <div class="ttd-line"></div>
+                        <div class="nama">Anisa Rahmah, S.Pd</div>
+                        <div class="nip">NIP. -</div>
                     </div>
-                    <div>
-                        <p>Pringsewu, 19 Juni 2026</p>
-                        <p><strong>Guru Kelas A</strong></p>
-                        <br><br><br>
-                        <p><u>Anisa Rahmah, S.Pd</u></p>
+                    <div class="pengesahan-card">
+                        <div class="role">Ditetapkan di</div>
+                        <div class="instansi">Pringsewu, 19 Juni 2026</div>
+                        <div class="ttd-line"></div>
+                        <div class="nama">Guru Kelas A</div>
+                        <div class="nip">Anisa Rahmah, S.Pd</div>
                     </div>
                 </div>
             </div>
@@ -428,42 +635,30 @@
         </section>
     </main>
 
-    <!-- Script Logika Tampilan Menu -->
+    <!-- ===== SCRIPT LOGIKA TAMPILAN ===== -->
     <script>
         let currentSemester = 'ganjil';
         let currentMenu = 'profil';
 
-        function setSemester(sem) {
+        function setSemester(sem, btnEl) {
             currentSemester = sem;
-            
-            // Ubah gaya tombol semester
             document.querySelectorAll('.sem-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
+            btnEl.classList.add('active');
             updateDisplay();
         }
 
         function setMenu(menuId) {
             currentMenu = menuId;
-            
-            // Ubah gaya tombol grid menu
             document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
             document.getElementById('btn-' + menuId).classList.add('active');
-            
             updateDisplay();
         }
 
         function updateDisplay() {
-            // Sembunyikan semua konten
-            document.querySelectorAll('.content-box').forEach(box => {
-                box.classList.remove('active');
-            });
-            
-            // Tampilkan konten yang sesuai dengan Semester dan Menu yang dipilih
+            document.querySelectorAll('.content-box').forEach(box => box.classList.remove('active'));
             let targetId = currentSemester + '-' + currentMenu;
             let targetElement = document.getElementById(targetId);
-            
-            if(targetElement) {
+            if (targetElement) {
                 targetElement.classList.add('active');
             }
         }
