@@ -30,9 +30,10 @@
         /* ===== NAVBAR ===== */
         .navbar {
             background-color: var(--primary);
-            padding: 12px 24px;
+            padding: 10px 24px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             color: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
         }
@@ -53,47 +54,46 @@
             color: rgba(255,255,255,0.8);
             letter-spacing: 0.3px;
         }
-
-        /* ===== BANNER / HERO ===== */
-        .hero-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            padding: 30px 50px;
-            background: linear-gradient(to bottom, var(--primary) 50%, var(--bg-body) 50%);
+        .navbar-brand .school-location {
+            font-size: 11px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
-        .banner-card {
-            border-radius: 15px;
-            position: relative;
-            min-height: 220px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            background-size: cover;
-            background-position: center;
-        }
-        .banner-1 { background-image: url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=600&q=80'); }
-        .banner-2 { background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80'); }
-        .banner-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, rgba(0,51,204,0.95) 40%, rgba(0,51,204,0.4) 100%);
-            padding: 30px;
+        .navbar-tags {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            border-radius: 15px;
+            gap: 5px;
+            align-items: flex-end;
+        }
+        .navbar-tag {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.3);
             color: white;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
-        .banner-2 .banner-overlay {
-            background: linear-gradient(90deg, rgba(255,255,255,0.95) 40%, rgba(255,255,255,0.4) 100%);
+
+        /* ===== PAGE TITLE BANNER ===== */
+        .page-title-bar {
+            background: var(--secondary);
+            text-align: center;
+            padding: 7px 24px;
+        }
+        .page-title-bar h1 {
+            font-size: 13px;
+            font-weight: 700;
             color: var(--primary);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
-        .banner-overlay h2 {
-            font-size: 24px;
-            color: var(--secondary);
-            margin-bottom: 5px;
-        }
-        .banner-2 .banner-overlay h2 { color: var(--primary); }
-        .banner-overlay p { font-size: 13px; max-width: 60%; }
+
+        /* hero section removed */
 
         /* ===== MAIN CONTAINER ===== */
         .main-container {
@@ -307,8 +307,7 @@
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1000px) { .menu-grid { grid-template-columns: repeat(4, 1fr); } }
         @media (max-width: 768px) {
-            .hero-section { grid-template-columns: 1fr; padding: 20px; }
-            .navbar { padding: 12px 16px; }
+            .navbar { padding: 10px 16px; }
             .info-grid { grid-template-columns: 1fr; }
             .pengesahan-grid { grid-template-columns: 1fr; }
             .main-container { padding: 0 16px 40px 16px; }
@@ -316,8 +315,11 @@
             .menu-grid { grid-template-columns: repeat(4, 1fr); gap: 6px; }
         }
         @media (max-width: 480px) {
+            .navbar-brand .student-name { font-size: 14px; }
+            .navbar-tag { font-size: 9px; padding: 2px 7px; }
             .menu-grid { grid-template-columns: repeat(4, 1fr); gap: 5px; }
             .menu-item span { font-size: 10px; }
+            .page-title-bar h1 { font-size: 11px; letter-spacing: 0.8px; }
         }
     </style>
 </head>
@@ -328,24 +330,18 @@
         <div class="navbar-brand">
             <span class="student-name">Yusuf Emran Setiawan</span>
             <span class="school-name">PAUD Hidayatul Ilmi</span>
+            <span class="school-location">Tambahrejo</span>
+        </div>
+        <div class="navbar-tags">
+            <span class="navbar-tag">Leadership</span>
+            <span class="navbar-tag">Mastery Learning</span>
         </div>
     </nav>
 
-    <!-- ===== HERO / BANNER ===== -->
-    <header class="hero-section">
-        <div class="banner-card banner-1">
-            <div class="banner-overlay">
-                <h2>LEADERSHIP</h2>
-                <p>Membangun rasa percaya diri, kemandirian, serta keterampilan komunikasi dalam aktivitas belajar Yusuf.</p>
-            </div>
-        </div>
-        <div class="banner-card banner-2">
-            <div class="banner-overlay">
-                <h2>MASTERY LEARNING</h2>
-                <p>Penguasaan materi dasar STEAM dan nilai agama melalui pemahaman mendalam secara interaktif.</p>
-            </div>
-        </div>
-    </header>
+    <!-- ===== JUDUL LAPORAN ===== -->
+    <div class="page-title-bar">
+        <h1>Laporan Pencapaian Perkembangan Anak Didik</h1>
+    </div>
 
     <main class="main-container">
 
