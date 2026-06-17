@@ -100,7 +100,69 @@
             text-transform: uppercase;
         }
 
-        /* hero section removed */
+        /* ===== CAROUSEL ===== */
+        .carousel-wrapper {
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            height: 180px;
+        }
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.4s ease;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0.85;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.45);
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            line-height: 1;
+        }
+        .carousel-btn:hover { background: rgba(0,0,0,0.7); }
+        .carousel-btn.prev { left: 10px; }
+        .carousel-btn.next { right: 10px; }
+        .carousel-dots {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+        }
+        .carousel-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .carousel-dot.active { background: white; }
 
         /* ===== MAIN CONTAINER ===== */
         .main-container {
@@ -348,6 +410,28 @@
     <!-- ===== JUDUL LAPORAN ===== -->
     <div class="page-title-bar">
         <h1>Laporan Pencapaian Perkembangan Anak Didik</h1>
+    </div>
+
+    <!-- ===== CAROUSEL ===== -->
+    <div class="carousel-wrapper">
+        <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide">
+                <img src="assets/foto1.png" alt="Murid PAUD Hidayatul Ilmi menerima buku laporan perkembangan bersama guru">
+            </div>
+            <div class="carousel-slide">
+                <img src="assets/foto2.png" alt="Foto bersama murid dan guru kelas A PAUD Hidayatul Ilmi">
+            </div>
+            <div class="carousel-slide">
+                <img src="assets/foto3.png" alt="Penerimaan laporan perkembangan anak didik PAUD Hidayatul Ilmi">
+            </div>
+        </div>
+        <button class="carousel-btn prev" onclick="carouselMove(-1)" aria-label="Sebelumnya">&#8249;</button>
+        <button class="carousel-btn next" onclick="carouselMove(1)" aria-label="Berikutnya">&#8250;</button>
+        <div class="carousel-dots" id="carouselDots">
+            <div class="carousel-dot active" onclick="carouselGoTo(0)"></div>
+            <div class="carousel-dot" onclick="carouselGoTo(1)"></div>
+            <div class="carousel-dot" onclick="carouselGoTo(2)"></div>
+        </div>
     </div>
 
     <main class="main-container">
@@ -656,6 +740,30 @@
                 targetElement.classList.add('active');
             }
         }
+
+        // ===== CAROUSEL =====
+        let carouselIndex = 0;
+        const carouselTotal = 3;
+
+        function carouselUpdate() {
+            document.getElementById('carouselTrack').style.transform = 'translateX(-' + (carouselIndex * 100) + '%)';
+            document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === carouselIndex);
+            });
+        }
+
+        function carouselMove(dir) {
+            carouselIndex = (carouselIndex + dir + carouselTotal) % carouselTotal;
+            carouselUpdate();
+        }
+
+        function carouselGoTo(idx) {
+            carouselIndex = idx;
+            carouselUpdate();
+        }
+
+        // Auto-slide setiap 4 detik
+        setInterval(() => carouselMove(1), 4000);
     </script>
 </body>
 </html>
