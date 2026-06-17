@@ -54,12 +54,19 @@
             color: rgba(255,255,255,0.8);
             letter-spacing: 0.3px;
         }
-        .navbar-brand .school-location {
+        .navbar-brand .school-location a {
             font-size: 11px;
             font-weight: 400;
             color: rgba(255,255,255,0.6);
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(255,255,255,0.35);
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .navbar-brand .school-location a:hover {
+            color: var(--secondary);
+            border-color: var(--secondary);
         }
         .navbar-tags {
             display: flex;
@@ -330,7 +337,7 @@
         <div class="navbar-brand">
             <span class="student-name">Yusuf Emran Setiawan</span>
             <span class="school-name">PAUD Hidayatul Ilmi</span>
-            <span class="school-location">Tambahrejo</span>
+            <span class="school-location"><a href="https://www.google.com/maps?q=-5.37725,105.04149" target="_blank" rel="noopener noreferrer">Tambahrejo</a></span>
         </div>
         <div class="navbar-tags">
             <span class="navbar-tag">Leadership</span>
